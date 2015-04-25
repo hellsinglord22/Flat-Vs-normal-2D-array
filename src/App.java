@@ -6,39 +6,31 @@
 
 public class App {
     public static void main(String[] args) {
-        // Attributes //
-        long startingTime, elapsedTime;
+        long startTime , elapsedTime , finishTime;
 
-        int[] flatArray = new int[10 * 10];
-        int[][] normal2DArray = new int[10][10];
+        startTime = System.nanoTime();
 
-        flatArray[0 + (4 * 10)] = 1;
-        normal2DArray[0][4] = 1;
-
-        /// lets try the flat array ///
-        startingTime = System.currentTimeMillis();
-
-        /// Read, Assign ///
-        for (int i = 0; i < 100000000; i++) {
-            int value = flatArray[0 + (4 * 10)];
-            flatArray[9 + (9 * 10)] = value;
+        for(int i = 0 ; i < 1000000 ; i ++ ){
+            /// do nothing //
         }
+        finishTime = System.nanoTime();
 
-        elapsedTime = System.currentTimeMillis() - startingTime;
+        finishTime = finishTime - startTime;
+        System.out.printf("Time take to loop 1,000,000 time: %d\n", finishTime);
 
-        System.out.printf("Flat array time: %d\n" , elapsedTime);
+        startTime = System.nanoTime();
 
-        /// 2D array ///
-        startingTime = System.currentTimeMillis();
-
-        /// Read, Assign ///
-        for (int i = 0; i < 100000000; i++) {
-            int value = normal2DArray[0][4];
-            normal2DArray[9][9] = value;
+        for(int i = 0 ; i < 1000000000 ; i ++ ){
+            /// do nothing //
         }
+        finishTime = System.nanoTime();
 
-        elapsedTime = System.currentTimeMillis() - startingTime;
-        System.out.printf("2D array time: %d\n" , elapsedTime);
+        finishTime = finishTime - startTime;
+        System.out.printf("Time take to loop 1,000,000,00 time: %d\n", finishTime);
+
+
+
+
 
     }
 }
