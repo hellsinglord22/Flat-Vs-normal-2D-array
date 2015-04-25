@@ -27,5 +27,18 @@ public class App {
         elapsedTime = System.currentTimeMillis() - startingTime;
 
         System.out.printf("Flat array time: %d\n" , elapsedTime);
+
+        /// 2D array ///
+        startingTime = System.currentTimeMillis();
+
+        /// Read, Assign ///
+        for (int i = 0; i < 100000000; i++) {
+            int value = normal2DArray[0][4];
+            normal2DArray[9][9] = value;
+        }
+
+        elapsedTime = System.currentTimeMillis() - startingTime;
+        System.out.printf("2D array time: %d\n" , elapsedTime);
+
     }
 }
