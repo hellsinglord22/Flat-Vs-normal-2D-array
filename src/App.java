@@ -15,5 +15,17 @@ public class App {
         flatArray[0 + (4 * 10)] = 1;
         normal2DArray[0][4] = 1;
 
+        /// lets try the flat array ///
+        startingTime = System.currentTimeMillis();
+
+        /// Read, Assign ///
+        for (int i = 0; i < 100000000; i++) {
+            int value = flatArray[0 + (4 * 10)];
+            flatArray[9 + (9 * 10)] = value;
+        }
+
+        elapsedTime = System.currentTimeMillis() - startingTime;
+
+        System.out.printf("Flat array time: %d\n" , elapsedTime);
     }
 }
