@@ -7,7 +7,7 @@
 public class App {
     public static void main(String[] args) {
         // Attributes //
-        long startingTime, elapsedTime;
+        long startTime, elapsedTime, finishTime;
 
         int[] flatArray = new int[10 * 10];
         int[][] normal2DArray = new int[10][10];
@@ -16,7 +16,7 @@ public class App {
         normal2DArray[0][4] = 1;
 
         /// lets try the flat array ///
-        startingTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
 
         /// Read, Assign ///
         for (int i = 0; i < 100000000; i++) {
@@ -24,12 +24,13 @@ public class App {
             flatArray[9 + (9 * 10)] = value;
         }
 
-        elapsedTime = System.currentTimeMillis() - startingTime;
+        finishTime = System.nanoTime();
+        elapsedTime = finishTime- startTime;
 
-        System.out.printf("Flat array time: %d\n" , elapsedTime);
+        System.out.printf("Flat array time: %d\n", elapsedTime);
 
         /// 2D array ///
-        startingTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
 
         /// Read, Assign ///
         for (int i = 0; i < 100000000; i++) {
@@ -37,8 +38,10 @@ public class App {
             normal2DArray[9][9] = value;
         }
 
-        elapsedTime = System.currentTimeMillis() - startingTime;
-        System.out.printf("2D array time: %d\n" , elapsedTime);
+
+        finishTime = System.nanoTime();
+        elapsedTime = finishTime- startTime;
+        System.out.printf("2D array time: %d\n", elapsedTime);
 
     }
 }
